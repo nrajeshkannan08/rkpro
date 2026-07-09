@@ -1,10 +1,7 @@
 import pymysql
-pymysql.install_as_MySQLdb()
-from flask import Flask, render_template, request, redirect, flash
-from flask_mysqldb import MySQL
+from flask import Flask, render_template, request, redirect, flash, g
 import os
 from werkzeug.utils import secure_filename
-
 
 
 app = Flask(__name__)
@@ -16,6 +13,33 @@ app.config['MYSQL_HOST'] = os.environ.get('MYSQL_HOST', 'localhost')
 app.config['MYSQL_USER'] = os.environ.get('MYSQL_USER', 'root')
 app.config['MYSQL_PASSWORD'] = os.environ.get('MYSQL_PASSWORD', '')
 app.config['MYSQL_DB'] = os.environ.get('MYSQL_DB', 'ascopetech')
+
+class MySQL:
+    def __init__(self, app=None):
+        self.app = app
+        if app is not None:
+            self.init_app(app)
+
+    def init_app(self, app):
+        @app.teardown_appcontext
+        def teardown_db(exception):
+            db = g.pop('mysql_db', None)
+            if db is not None:
+                try:
+                    db.close()
+                except Exception:
+                    pass
+
+    @property
+    def connection(self):
+        if 'mysql_db' not in g:
+            g.mysql_db = pymysql.connect(
+                host=self.app.config['MYSQL_HOST'],
+                user=self.app.config['MYSQL_USER'],
+                password=self.app.config['MYSQL_PASSWORD'],
+                database=self.app.config['MYSQL_DB']
+            )
+        return g.mysql_db
 
 mysql = MySQL(app)
 
