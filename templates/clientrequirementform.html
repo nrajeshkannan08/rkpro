@@ -1,0 +1,216 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container mt-5 mb-5">
+
+    <div class="card shadow">
+        <div class="card-header bg-primary text-white">
+            <h3>Client Requirements Form</h3>
+        </div>
+
+        <div class="card-body">
+
+            <form action="/client-submit"
+                  method="POST"
+                  enctype="multipart/form-data">
+
+                <div class="row">
+
+                    <!-- Client Information -->
+
+                    <h4 class="mb-3 text-primary">
+                        Client Information
+                    </h4>
+
+                    <div class="col-md-6 mb-3">
+                        <label>Client Name *</label>
+                        <input type="text"
+                               name="client_name"
+                               class="form-control"
+                               required>
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <label>Company Name *</label>
+                        <input type="text"
+                               name="company_name"
+                               class="form-control"
+                               required>
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <label>Email Address *</label>
+                        <input type="email"
+                               name="email"
+                               class="form-control"
+                               required>
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <label>Mobile Number *</label>
+                        <input type="text"
+                               name="mobile"
+                               class="form-control"
+                               required>
+                    </div>
+
+                    <div class="col-md-12 mb-3">
+                        <label>Company Address</label>
+                        <textarea name="address"
+                                  class="form-control"
+                                  rows="3"></textarea>
+                    </div>
+
+                    <!-- Project Details -->
+
+                    <h4 class="mt-4 mb-3 text-primary">
+                        Project Requirements
+                    </h4>
+
+                    <div class="col-md-6 mb-3">
+                        <label>Project Name *</label>
+                        <input type="text"
+                               name="project_name"
+                               class="form-control"
+                               required>
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <label>Project Type *</label>
+                        <select name="project_type"
+                                class="form-control"
+                                required>
+                            <option value="">Select Project Type</option>
+                            <option>Website Development</option>
+                            <option>Web Application</option>
+                            <option>Mobile Application</option>
+                            <option>E-Commerce Website</option>
+                            <option>ERP/CRM System</option>
+                            <option>Digital Marketing</option>
+                            <option>UI/UX Design</option>
+                            <option>Other</option>
+                        </select>
+                    </div>
+
+                    <div class="col-md-12 mb-3">
+                        <label>Project Description *</label>
+                        <textarea name="project_description"
+                                  class="form-control"
+                                  rows="5"
+                                  required></textarea>
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <label>Target Audience</label>
+                        <input type="text"
+                               name="target_audience"
+                               class="form-control">
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <label>Preferred Technology</label>
+                        <input type="text"
+                               name="technology"
+                               class="form-control"
+                               placeholder="Python, Flask, React, PHP, etc.">
+                    </div>
+
+                    <!-- Features -->
+
+                    <h4 class="mt-4 mb-3 text-primary">
+                        Required Features
+                    </h4>
+
+                    <div class="col-md-12 mb-3">
+                        <textarea name="required_features"
+                                  class="form-control"
+                                  rows="5"
+                                  placeholder="List all required features and functionalities"></textarea>
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <label>Number of Pages / Modules</label>
+                        <input type="number"
+                               name="pages_modules"
+                               class="form-control">
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <label>Domain & Hosting Required?</label>
+                        <select name="hosting_required"
+                                class="form-control">
+                            <option value="">Select</option>
+                            <option>Yes</option>
+                            <option>No</option>
+                        </select>
+                    </div>
+
+                    <!-- Budget & Timeline -->
+
+                    <h4 class="mt-4 mb-3 text-primary">
+                        Budget & Timeline
+                    </h4>
+
+                    <div class="col-md-6 mb-3">
+                        <label>Estimated Budget</label>
+                        <input type="text"
+                               name="budget"
+                               class="form-control"
+                               placeholder="₹">
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <label>Expected Completion Date</label>
+                        <input type="date"
+                               name="deadline"
+                               class="form-control">
+                    </div>
+
+                    <!-- Reference Files -->
+
+                    <h4 class="mt-4 mb-3 text-primary">
+                        Reference Documents
+                    </h4>
+
+                    <div class="col-md-12 mb-3">
+                        <label>Upload Requirement Documents</label>
+                        <input type="file"
+                               name="requirement_file"
+                               class="form-control">
+                    </div>
+
+                    <div class="col-md-12 mb-3">
+                        <label>Reference Websites / Competitors</label>
+                        <textarea name="reference_sites"
+                                  class="form-control"
+                                  rows="3"
+                                  placeholder="Enter website URLs separated by commas"></textarea>
+                    </div>
+
+                    <!-- Additional Notes -->
+
+                    <div class="col-md-12 mb-3">
+                        <label>Additional Notes</label>
+                        <textarea name="additional_notes"
+                                  class="form-control"
+                                  rows="4"></textarea>
+                    </div>
+
+                    <div class="col-md-12 text-center">
+                        <button type="submit"
+                                class="btn btn-success btn-lg">
+                            Submit Requirements
+                        </button>
+                    </div>
+
+                </div>
+
+            </form>
+
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}

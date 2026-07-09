@@ -1,0 +1,38 @@
+
+{% extends 'base.html' %}
+{% block content %}
+<div class="container py-5">
+
+    <div class="text-center">
+
+<img
+src="{{ url_for('static',
+filename='images/logo.png') }}"
+height="120">
+
+<h2>Get In Touch</h2>
+
+</div>
+
+<h2 class="counter" data-target="150">Contact Us</h2>
+
+<p id="typing"><strong>RK Software Services </strong></p>
+
+<!--<p id="typing">
+Plot# 7, 4/554, Janakipuram<br>
+Thiruverumbur,<br>
+Tiruchirappalli – 620013,<br>
+Tamil Nadu, India
+</p>
+-->
+
+
+<p id="typing">Phone: +91 9092539842</p>
+<p id="typing">Phone: +91 8680898428</p>
+
+<p id="typing">Email: nrkbhivetech2025@gmail.com</p>
+
+<p id="typing">Website: www.rksoftwareservices.in</p>
+
+</div>
+{% endblock %}

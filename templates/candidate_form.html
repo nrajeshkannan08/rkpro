@@ -1,0 +1,192 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container mt-5 mb-5">
+
+    <div class="card shadow">
+        <div class="card-header bg-primary text-white">
+            <h3>Online Course Registration Form</h3>
+        </div>
+
+        <div class="card-body">
+
+            <form action="/candidate-submit"
+                  method="POST"
+                  enctype="multipart/form-data">
+
+                <div class="row">
+
+                    <!-- Personal Information -->
+
+                    <div class="col-md-6 mb-3">
+                        <label>First Name *</label>
+                        <input type="text"
+                               name="first_name"
+                               class="form-control"
+                               required>
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <label>Last Name *</label>
+                        <input type="text"
+                               name="last_name"
+                               class="form-control"
+                               required>
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <label>Email *</label>
+                        <input type="email"
+                               name="email"
+                               class="form-control"
+                               required>
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <label>Mobile Number *</label>
+                        <input type="text"
+                               name="mobile"
+                               class="form-control"
+                               required>
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <label>Date of Birth</label>
+                        <input type="date"
+                               name="dob"
+                               class="form-control">
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <label>Gender</label>
+                        <select name="gender"
+                                class="form-control">
+                            <option value="">Select</option>
+                            <option>Male</option>
+                            <option>Female</option>
+                            <option>Other</option>
+                        </select>
+                    </div>
+
+                    <div class="col-md-12 mb-3">
+                        <label>Address</label>
+                        <textarea name="address"
+                                  class="form-control"
+                                  rows="3"></textarea>
+                    </div>
+
+                    <!-- Education -->
+
+                    <h4 class="mt-4 mb-3 text-primary">
+                        Educational Details
+                    </h4>
+
+                    <div class="col-md-4 mb-3">
+                        <label>10th Percentage</label>
+                        <input type="text"
+                               name="tenth_percentage"
+                               class="form-control">
+                    </div>
+
+                    <div class="col-md-4 mb-3">
+                        <label>12th Percentage</label>
+                        <input type="text"
+                               name="twelfth_percentage"
+                               class="form-control">
+                    </div>
+
+                    <div class="col-md-4 mb-3">
+                        <label>Diploma Percentage</label>
+                        <input type="text"
+                               name="diploma_percentage"
+                               class="form-control">
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <label>UG Degree</label>
+                        <input type="text"
+                               name="ug_degree"
+                               class="form-control">
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <label>UG CGPA</label>
+                        <input type="text"
+                               name="ug_cgpa"
+                               class="form-control">
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <label>PG Degree</label>
+                        <input type="text"
+                               name="pg_degree"
+                               class="form-control">
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <label>PG CGPA</label>
+                        <input type="text"
+                               name="pg_cgpa"
+                               class="form-control">
+                    </div>
+
+                    <!-- Skills -->
+
+                    <h4 class="mt-4 mb-3 text-primary">
+                        Skills & Experience
+                    </h4>
+
+                    <div class="col-md-6 mb-3">
+                        <label>Skills</label>
+                        <input type="text"
+                               name="skills"
+                               class="form-control"
+                               placeholder="Python, Java, Laravel">
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <label>Years of Experience</label>
+                        <input type="number"
+                               name="experience"
+                               class="form-control">
+                    </div>
+
+                    <div class="col-md-12 mb-3">
+                        <label>Projects</label>
+                        <textarea name="projects"
+                                  class="form-control"
+                                  rows="3"></textarea>
+                    </div>
+
+                    <!-- Resume Upload -->
+
+                    <h4 class="mt-4 mb-3 text-primary">
+                        Resume Upload
+                    </h4>
+
+                    <div class="col-md-12 mb-3">
+                        <label>Upload Resume (PDF/DOC)</label>
+                        <input type="file"
+                               name="resume"
+                               class="form-control"
+                               required>
+                    </div>
+
+                    <div class="col-md-12 text-center">
+                        <button type="submit"
+                                class="btn btn-success btn-lg">
+                            Submit Application
+                        </button>
+                    </div>
+
+                </div>
+
+            </form>
+
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}

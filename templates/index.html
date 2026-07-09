@@ -1,0 +1,16 @@
+
+{% extends 'base.html' %}
+{% block content %}
+<!-- <section class="py-5 bg-light text-center"> -->
+    <section class="hero">
+<div class="container">
+    <img
+src="{{ url_for('static',
+filename='images/logo2.png') }}"
+class="hero-logo">
+<h1 class="hero-gradient">RK Software Services </h1>
+<p id="typing">Software Development & Technology Solutions Division</p>
+<a href="/services" class="btn btn-primary">Explore Services</a>
+</div>
+</section>
+{% endblock %}
