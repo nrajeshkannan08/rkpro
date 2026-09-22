@@ -1,8 +1,14 @@
-import pymysql
-from flask import Flask, render_template, request, redirect, flash, g
 import os
+from flask import Flask, render_template, request, redirect, flash, g
 from werkzeug.utils import secure_filename
 
+try:
+    import pymysql as db_connector  # type: ignore
+except ImportError:
+    try:
+        import mysql.connector as db_connector
+    except ImportError:
+        db_connector = None
 
 app = Flask(__name__)
 
@@ -32,8 +38,10 @@ class MySQL:
 
     @property
     def connection(self):
+        if db_connector is None:
+            raise RuntimeError('No MySQL connector is available')
         if 'mysql_db' not in g:
-            g.mysql_db = pymysql.connect(
+            g.mysql_db = db_connector.connect(
                 host=self.app.config['MYSQL_HOST'],
                 user=self.app.config['MYSQL_USER'],
                 password=self.app.config['MYSQL_PASSWORD'],
